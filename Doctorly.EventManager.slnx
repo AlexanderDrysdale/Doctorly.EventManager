@@ -1,3 +1,3 @@
 <Solution>
-  <Project Path="LexisNexis.ProductCatalogManagementSystem.API/Doctorly.EventManager.Api.csproj" />
+  <Project Path="Doctorly.EventManager.Api/Doctorly.EventManager.Api.csproj" />
 </Solution>
