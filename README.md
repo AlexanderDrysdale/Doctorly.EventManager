@@ -5,14 +5,15 @@ Doctorly.EventManager.Api is a backend service designed to manage events, attend
 Key features include:
 - **Fuzzy search** for flexible event and attendee lookups.
 - **Caching** to improve performance and reduce repeated queries.
+- **Middleware for API call pattern validation**, ensuring consistent request structures and enforcing best practices across endpoints.
 - **Email notifications** (planned) to streamline communication with attendees.
 - **Swagger/OpenAPI documentation** for discoverability and client generation.
-- **Middleware** for api call pattern validation.
 
 This project was developed using .NET 10 due to time constraints and environment availability.
 
 ## Getting Started
-- Ensure the required development certificate is installed.
+- Ensure the required development certificate is installed by running: dotnet dev-certs https --trust
+This step is required for local HTTPS support.
 - Open and run the solution in Visual Studio.
 - API documentation is available via Swagger at: https://localhost:7044/index.html
 - Work is in progress to generate a typed client using NSwag from the Swagger JSON, enabling frontend developers to integrate more easily.
