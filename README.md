@@ -1,6 +1,6 @@
 # Doctorly.EventManager.Api
 
-This project was developed using .NET 8 due to time constraints and environment availability.
+This project was developed using .NET 10 due to time constraints and environment availability.
 
 ## Getting Started
 - Ensure the required development certificate is installed.
