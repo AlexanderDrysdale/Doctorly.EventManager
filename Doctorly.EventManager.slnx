@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="Doctorly.EventManager.Api/Doctorly.EventManager.Api.csproj" />
+  <Project Path="Doctorly.EventManager.Tests/Doctorly.EventManager.Tests.csproj" Id="0f877408-5ac5-4de2-bcce-f348623a70e7" />
 </Solution>
