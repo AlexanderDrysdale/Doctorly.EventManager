@@ -1,0 +1,64 @@
+@LexisNexis.ProductCatalogManagementSystem.API_HostAddress = http://localhost:5008
+
+### Weather Forecast
+GET {{LexisNexis.ProductCatalogManagementSystem.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+### Products
+# Get all products (flat list, optional query param ?name=)
+GET {{LexisNexis.ProductCatalogManagementSystem.API_HostAddress}}/api/products
+Accept: application/json
+
+# Get product by ID
+GET {{LexisNexis.ProductCatalogManagementSystem.API_HostAddress}}/api/products/1
+Accept: application/json
+
+# Create product
+POST {{LexisNexis.ProductCatalogManagementSystem.API_HostAddress}}/api/products
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Laptop",
+  "description": "High performance laptop",
+  "sku": "LAP123",
+  "price": 1200.00,
+  "quantity": 10,
+  "categoryId": 1
+}
+
+# Update product
+PUT {{LexisNexis.ProductCatalogManagementSystem.API_HostAddress}}/api/products/1
+Content-Type: application/json
+
+{
+  "name": "Laptop Pro",
+  "description": "Updated description",
+  "sku": "LAP123",
+  "price": 1500.00,
+  "quantity": 8,
+  "categoryId": 1
+}
+
+# Delete product
+DELETE {{LexisNexis.ProductCatalogManagementSystem.API_HostAddress}}/api/products/1
+
+### Categories
+# Get all categories (flat list)
+GET {{LexisNexis.ProductCatalogManagementSystem.API_HostAddress}}/api/categories
+Accept: application/json
+
+# Get category tree (hierarchical)
+GET {{LexisNexis.ProductCatalogManagementSystem.API_HostAddress}}/api/categories/tree
+Accept: application/json
+
+# Create category
+POST {{LexisNexis.ProductCatalogManagementSystem.API_HostAddress}}/api/categories
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Electronics",
+  "description": "Devices and gadgets",
+  "parentCategoryId": null
+}

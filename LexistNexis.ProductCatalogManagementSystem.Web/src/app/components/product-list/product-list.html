@@ -1,0 +1,91 @@
+<div class="container">
+  <header class="page-header">
+    <h1>Product Inventory</h1>
+    <p class="subtitle">Manage, filter, and track your global store products</p>
+  </header>
+
+  <div class="toolbar">
+    <div class="filter-group">
+      <label for="search">Search Name</label>
+      <input id="search"
+             type="text"
+             [(ngModel)]="searchTerm"
+             (change)="onSearchOrFilter()"
+             (keyup.enter)="onSearchOrFilter()"
+             placeholder="Type and hit Enter..." />
+    </div>
+
+    <div class="filter-group">
+      <label for="category">Category</label>
+      <select id="category" [(ngModel)]="selectedCategory" (change)="onSearchOrFilter()">
+        <option [ngValue]="undefined">All Categories</option>
+        <option *ngFor="let cat of categories" [ngValue]="cat.id">
+          {{ cat.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>SKU</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th class="actions-column">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 1. Frozen Loading Placeholder (Blocks out old/empty lists during fetch cycles) -->
+        <tr *ngIf="isLoading">
+          <td colspan="6" class="no-data">Fetching server records... Please wait.</td>
+        </tr>
+
+        <!-- 2. Valid Row Output (Only rendered when network transaction terminates successfully) -->
+        <ng-container *ngIf="!isLoading">
+          <tr *ngFor="let product of products">
+            <td><strong>{{ product.sku }}</strong></td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price | currency }}</td>
+            <td>{{ product.quantity }}</td>
+            <td class="actions-column">
+              <button class="btn btn-edit" (click)="onEdit(product)">Edit</button>
+              <button class="btn btn-delete" (click)="onDelete(product)">Delete</button>
+            </td>
+          </tr>
+        </ng-container>
+
+        <!-- 3. Explicit Empty View (Guaranteed to hide until isLoading is confirmed false) -->
+        <tr *ngIf="!isLoading && (!products || products.length === 0)">
+          <td colspan="6" class="no-data">No products found matching the criteria.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="paginator">
+    <div class="page-size-selector">
+      <label for="pageSize">Items per page:</label>
+      <select id="pageSize" [(ngModel)]="pageSize" (change)="onPageSizeChange()">
+        <option [ngValue]="5">5</option>
+        <option [ngValue]="10">10</option>
+        <option [ngValue]="25">25</option>
+      </select>
+    </div>
+
+    <div class="pagination-info">
+      Showing page {{ currentPage }} of {{ totalPages }} ({{ totalCount }} total items)
+    </div>
+
+    <div class="pagination-buttons">
+      <button [disabled]="currentPage === 1 || isLoading" (click)="onFirstPage()">&laquo; First</button>
+      <button [disabled]="currentPage === 1 || isLoading" (click)="onPrevPage()">&lsaquo; Prev</button>
+      <button [disabled]="currentPage === totalPages || isLoading" (click)="onNextPage()">Next &rsaquo;</button>
+      <button [disabled]="currentPage === totalPages || isLoading" (click)="onLastPage()">Last &raquo;</button>
+    </div>
+  </div>
+</div>

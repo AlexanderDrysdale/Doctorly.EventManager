@@ -1,0 +1,8 @@
+﻿using Doctorly.EventManager.Api.Domain.Entities;
+
+namespace Doctorly.EventManager.Api.Infastructure.Persistence.Repository.Interfaces
+{
+    public interface IAttendeeRepository : IRepository<Attendee>
+    {
+    }
+}
