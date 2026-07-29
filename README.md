@@ -7,6 +7,7 @@ Key features include:
 - **Caching** to improve performance and reduce repeated queries.
 - **Email notifications** (planned) to streamline communication with attendees.
 - **Swagger/OpenAPI documentation** for discoverability and client generation.
+- **Middleware** for api call pattern validation.
 
 This project was developed using .NET 10 due to time constraints and environment availability.
 
