@@ -1,6 +1,12 @@
 # Doctorly.EventManager.Api
 
-Doctorly.EventManager.Api is a backend service designed to manage events, attendees, and related workflows. It provides a RESTful API with Swagger documentation for easy exploration and integration. The system is built with a layered architecture to support scalability, maintainability, and future enhancements such as CQRS and client generation.
+Doctorly.EventManager.Api is a backend service designed to manage events, attendees, and related workflows. It exposes a RESTful API with Swagger documentation for easy exploration and integration. The system is built with a layered architecture to support scalability, maintainability, and future enhancements such as CQRS and typed client generation.
+
+Key features include:
+- **Fuzzy search** for flexible event and attendee lookups.
+- **Caching** to improve performance and reduce repeated queries.
+- **Email notifications** (planned) to streamline communication with attendees.
+- **Swagger/OpenAPI documentation** for discoverability and client generation.
 
 This project was developed using .NET 10 due to time constraints and environment availability.
 
